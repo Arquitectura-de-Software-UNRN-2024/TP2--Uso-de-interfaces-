@@ -1,5 +1,4 @@
-## TP1: Uso de Interfaces
-UNRN - ING. ELECTRÓNICA
+## TP2: Uso de Interfaces
 
 <details>
 <summary><b>Información acerca de proyecto</b></summary>
@@ -13,6 +12,8 @@ UNRN - ING. ELECTRÓNICA
 
 * **Profesor:**
     Martín Morixe
+  
+* Universidad Nacional de Río Negro - Sede Andina - Ingeniería Electrónica
 </details>
 
 <details>
