@@ -37,7 +37,7 @@ Aca irian las instrucciones de uso cuando estén
 </details>
 
 <details>
-<summary><b>Pruebas de programa funcionando</b>b></summary>
+<summary><b>Pruebas de programa funcionando</b></summary>
 Aca irian las pruebas cuando esten
 </details>
 
