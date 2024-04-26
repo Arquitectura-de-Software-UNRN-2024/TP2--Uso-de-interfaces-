@@ -9,6 +9,8 @@ class DynamicMemStack : public Stack {
 public:
   DynamicMemStack();
   DynamicMemStack(size_t);
+  DynamicMemStack(size_t, StackableObject **new_arr(size_t len),
+                  void delete_arr(StackableObject **ptr));
   DynamicMemStack(DynamicMemStack &&) = delete;
   DynamicMemStack(const DynamicMemStack &) = delete;
   DynamicMemStack &operator=(DynamicMemStack &&) = delete;
@@ -23,4 +25,9 @@ private:
   StackableObject **stack;
   size_t count;
   size_t capacity;
+  StackableObject **(*new_arr)(size_t len);
+  void (*delete_arr)(StackableObject **ptr);
+
+  static StackableObject **default_new_arr(size_t len);
+  static void default_delete_arr(StackableObject **ptr);
 };
