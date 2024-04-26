@@ -2,12 +2,12 @@
  * @file stack_interface.hpp
  * @author Pojmaevich Mirko (mirkopoj@gmail.com)
  *         Torletti Lara (lara.a.torletti@gmail.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2024-04-25
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 
 #pragma once
@@ -20,7 +20,7 @@ public:
 
 class Stack {
 public:
-  virtual bool push(const StackableObject*) = 0;
-  virtual StackableObject* pop() = 0;
+  virtual bool push(StackableObject *const) = 0;
+  virtual StackableObject *pop() = 0;
   virtual size_t get_count() const = 0;
 };
