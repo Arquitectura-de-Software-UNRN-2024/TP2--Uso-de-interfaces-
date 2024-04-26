@@ -20,7 +20,7 @@ public:
 
 class Stack {
 public:
-  virtual bool push(StackableObject*) = 0;
+  virtual bool push(const StackableObject*) = 0;
   virtual StackableObject* pop() = 0;
-  virtual size_t get_count() = 0;
+  virtual size_t get_count() const = 0;
 };
