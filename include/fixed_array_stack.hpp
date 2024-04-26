@@ -20,7 +20,7 @@
 class FixedArrayStack: public Stack{
     public:
         FixedArrayStack();
-        ~FixedArrayStack();
+        ~FixedArrayStack() = default;
         FixedArrayStack(FixedArrayStack&&) = delete;
         FixedArrayStack(const FixedArrayStack&) = delete;
         FixedArrayStack &operator= (FixedArrayStack&&) = delete;
