@@ -16,14 +16,7 @@ bool DynamicMemStack::push(StackableObject *const new_value) {
     return false;
   }
   if (count == capacity) {
-    size_t new_capacity = capacity * 2;
-    StackableObject **new_stack =
-        (StackableObject **)realloc(stack, new_capacity);
-    if (!new_stack) {
       return false;
-    }
-    this->stack = new_stack;
-    this->capacity = new_capacity;
   }
   this->stack[this->count] = new_value;
   this->count++;

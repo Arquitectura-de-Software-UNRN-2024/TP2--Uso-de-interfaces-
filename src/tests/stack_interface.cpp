@@ -6,10 +6,11 @@
 
 #include "../../include/dummy_stackable_object.hpp"
 #include "../../include/dynamic_mem_stack.hpp"
+#include "../../include/dynamic_mem_stack_resizeable.hpp"
 #include "../../include/fixed_array_stack.hpp"
 
 #define TEST_F(F, S, N, I, ...)                                                \
-  Test(S, I##N) {                                                              \
+  Test(S, I##__##N) {                                                              \
     Stack *param = static_cast<Stack *>(new I(__VA_ARGS__));                   \
     F(param);                                                                  \
     delete param;                                                              \
@@ -17,7 +18,12 @@
 
 #define FOR_IMPLEMENTATIONS(F, S, N)                                           \
   TEST_F(F, S, N, FixedArrayStack)                                             \
-  TEST_F(F, S, N, DynamicMemStack, 3)
+  TEST_F(F, S, N, DynamicMemStack)                                             \
+  TEST_F(F, S, N, DynamicMemStackResizeable, 10)
+
+#define FOR_IMPLEMENTATIONS_FIXED_SIZE(F, S, N)                                \
+  TEST_F(F, S, N, FixedArrayStack)                                             \
+  TEST_F(F, S, N, DynamicMemStack)
 
 void test_get_count(Stack *stack) {
   cr_assert_eq(stack->get_count(), 0);
@@ -55,8 +61,7 @@ void test_pop(Stack *stack) {
 }
 FOR_IMPLEMENTATIONS(test_pop, stack_interface_test, pop)
 
-Test(stack_interface_test, fixed_push) {
-  Stack *stack = static_cast<Stack *>(new FixedArrayStack);
+void test_fixed_push(Stack *stack) {
   DummyStackableObject obj;
   cr_assert(stack->push(&obj));
   cr_assert(stack->push(&obj));
@@ -70,3 +75,5 @@ Test(stack_interface_test, fixed_push) {
   cr_assert(stack->push(&obj));
   cr_assert(!stack->push(&obj));
 }
+FOR_IMPLEMENTATIONS_FIXED_SIZE(test_fixed_push, stack_interface_test,
+                               fixed_push)
