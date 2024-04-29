@@ -23,4 +23,5 @@ public:
   virtual bool push(StackableObject *const) = 0;
   virtual StackableObject *pop() = 0;
   virtual size_t get_count() const = 0;
+  virtual ~Stack() = default;
 };

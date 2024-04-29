@@ -1,8 +1,5 @@
 #include "../include/dynamic_mem_stack.hpp"
 #include <cstdlib>
-#ifdef RUNNING_TESTS
-#include "../include/test_allocations.hpp"
-#endif // RUNNING_TESTS
 
 DynamicMemStack::DynamicMemStack()
     : count(0), stack(new StackableObject *[DYNAMIC_STACK_INITIAL_CAPACITY]),

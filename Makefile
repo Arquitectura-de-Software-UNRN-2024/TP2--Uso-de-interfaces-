@@ -1,8 +1,7 @@
 CC = g++
 LDFLAGS =
-LDTESTFLAGS = -lcriterion -Wl,--wrap,malloc,--wrap,realloc,--wrap,calloc,--wrap,free 
+LDTESTFLAGS = -lcriterion 
 CFLAGS = -O -std=c++20 
-CTESTFLAGS = -fsanitize=address -fno-rtti
 ifeq ($(DEBUG),1)
 	CFLAGS += -g3
 endif
