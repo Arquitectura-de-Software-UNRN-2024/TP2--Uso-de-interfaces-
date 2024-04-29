@@ -14,7 +14,6 @@
 
 FixedArrayStack::FixedArrayStack():count(0),stack{} {}
 
-
 bool FixedArrayStack::push(StackableObject *const new_object){
     if (!new_object){
         return false;

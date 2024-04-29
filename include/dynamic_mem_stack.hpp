@@ -25,9 +25,4 @@ private:
   StackableObject **stack;
   size_t count;
   size_t capacity;
-  StackableObject **(*new_arr)(size_t len);
-  void (*delete_arr)(StackableObject **ptr);
-
-  static StackableObject **default_new_arr(size_t len);
-  static void default_delete_arr(StackableObject **ptr);
 };

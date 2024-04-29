@@ -1,7 +1,8 @@
 CC = g++
 LDFLAGS =
-LDTESTFLAGS = -lcriterion
+LDTESTFLAGS = -lcriterion -Wl,--wrap,malloc,--wrap,realloc,--wrap,calloc,--wrap,free 
 CFLAGS = -O -std=c++20 
+CTESTFLAGS = -fsanitize=address -fno-rtti
 ifeq ($(DEBUG),1)
 	CFLAGS += -g3
 endif
@@ -23,7 +24,7 @@ $(MAINOUTS): $(OBJS) $(MAINOBJS)
 
 $(TESTOUTS): $(OBJS) $(TESTOBJS)
 	@mkdir -p bin
-	$(CC) $(CFLAGS) -o bin/$@ obj/tests/$@.o $(OBJS) $(LDTESTFLAGS)
+	$(CC) $(CFLAGS) -o bin/$@ obj/tests/$@.o $(OBJS) $(LDTESTFLAGS) -DRUNNING_TESTS
 
 obj/%.o: src/%.cpp 
 	@mkdir -p $(@D)

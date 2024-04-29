@@ -1,28 +1,18 @@
 #include "../include/dynamic_mem_stack.hpp"
 #include <cstdlib>
+#ifdef RUNNING_TESTS
+#include "../include/test_allocations.hpp"
+#endif // RUNNING_TESTS
 
 DynamicMemStack::DynamicMemStack()
-    : count(0), new_arr(DynamicMemStack::default_new_arr),
-      delete_arr(DynamicMemStack::default_delete_arr),
-      stack(DynamicMemStack::default_new_arr(DYNAMIC_STACK_INITIAL_CAPACITY *
-                                             sizeof(StackableObject *))),
+    : count(0), stack(new StackableObject *[DYNAMIC_STACK_INITIAL_CAPACITY]),
       capacity(DYNAMIC_STACK_INITIAL_CAPACITY){};
 
 DynamicMemStack::DynamicMemStack(size_t initial_capacity)
-    : count(0), new_arr(DynamicMemStack::default_new_arr),
-      delete_arr(DynamicMemStack::default_delete_arr),
-      stack(DynamicMemStack::default_new_arr(initial_capacity *
-                                             sizeof(StackableObject *))),
+    : count(0), stack(new StackableObject *[initial_capacity]),
       capacity(initial_capacity){};
 
-DynamicMemStack::DynamicMemStack(size_t initial_capacity,
-                                 StackableObject **new_arr(size_t len),
-                                 void delete_arr(StackableObject **ptr))
-    : count(0), new_arr(new_arr), delete_arr(delete_arr),
-      stack(new_arr(initial_capacity * sizeof(StackableObject *))),
-      capacity(initial_capacity){};
-
-DynamicMemStack::~DynamicMemStack() { this->delete_arr(stack); };
+DynamicMemStack::~DynamicMemStack() { delete[] this->stack; };
 
 bool DynamicMemStack::push(StackableObject *const new_value) {
   if (!new_value) {
@@ -53,8 +43,3 @@ StackableObject *DynamicMemStack::pop() {
 }
 
 size_t DynamicMemStack::get_count() const { return this->count; }
-
-StackableObject **DynamicMemStack::default_new_arr(size_t len) {
-  return (StackableObject **)malloc(len);
-}
-void DynamicMemStack::default_delete_arr(StackableObject **ptr) { free(ptr); }
