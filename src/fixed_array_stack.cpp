@@ -18,18 +18,17 @@ bool FixedArrayStack::push(StackableObject *const new_object){
     if (!new_object){
         return false;
     }
-    if (count >= FIXED_ARRAY_STACK_CAPACITY){
+    if (this->count >= FIXED_ARRAY_STACK_CAPACITY){
         return false;
     }
     this->stack[this->count] = new_object;
+    this->count++;
     return true;
+    
 }
 
 StackableObject* FixedArrayStack::pop(){
     StackableObject* poppedobject = nullptr;
-    if (this->count = 0){
-        return NULL;
-    }
     if (this->count > 0){
         this->count--;
         poppedobject = this->stack[this->count];
