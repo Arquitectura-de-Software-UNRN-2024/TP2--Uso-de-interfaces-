@@ -2,7 +2,7 @@
  * @file stackable_object_vehicle.cpp
  * @author Pojmaevich Mirko (mirkopoj@gmail.com)
  *         Torletti Lara (lara.a.torletti@gmail.com)
- * @brief
+ * @brief This file implement the Vehicle class.
  * @version 0.1
  * @date 2024-05-01
  *
@@ -17,11 +17,9 @@ Vehicle::Vehicle(int w_a, bool h_t, float e_d)
 }
 
 void Vehicle::print() {
-    std::cout 
-    << "Cantidad de ruedas: " << this->wheels_amount 
-    << "Tiene baúl: " << this->has_trunk 
-    << "Cilindrada: " << this->engine_displacement
-    << std::endl;
+    std::cout << "Cantidad de ruedas: " << this->wheels_amount
+              << "Tiene baúl: " << this->has_trunk
+              << "Cilindrada: " << this->engine_displacement << std::endl;
 }
 
 // property get
