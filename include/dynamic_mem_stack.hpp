@@ -1,6 +1,7 @@
 /**
  * @file dynamic_mem_stack.hpp
- * @author your name (you@domain.com)
+ * @author Pojmaevich Mirko (mirkopoj@gmail.com)
+ *         Torletti Lara (lara.a.torletti@gmail.com)
  * @brief
  * @version 0.1
  * @date 2024-05-01

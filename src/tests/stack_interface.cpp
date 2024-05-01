@@ -1,3 +1,14 @@
+/**
+ * @file stack_interface.cpp
+ * @author Pojmaevich Mirko (mirkopoj@gmail.com)
+ *         Torletti Lara (lara.a.torletti@gmail.com)
+ * @brief test stack interface
+ * @version 0.1
+ * @date 2024-05-01
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 #include <criterion/criterion.h>
 #include <criterion/internal/assert.h>
 #include <criterion/parameterized.h>

@@ -1,7 +1,7 @@
 /**
  * @file stackable_object_vehicle.hpp
  * @author Pojmaevich Mirko (mirkopoj@gmail.com)
- *         Torletti Lara (lara.a.torletti@gmail.com)
+ *         Torletti Lara (lara.a.torletti@gmail.com):)
  * @brief This file defines the Vehicle class representing a generic vehicle.
  * @version 0.1
  * @date 2024-05-01
