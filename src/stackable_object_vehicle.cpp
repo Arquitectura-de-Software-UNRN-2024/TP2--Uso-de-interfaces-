@@ -17,9 +17,10 @@ Vehicle::Vehicle(int w_a, bool h_t, float e_d)
 }
 
 void Vehicle::print() {
-    std::cout << "Cantidad de ruedas: " << this->wheels_amount
-              << "Tiene baúl: " << this->has_trunk
-              << "Cilindrada: " << this->engine_displacement << std::endl;
+    std::string baul = this->has_trunk ? "con" : "sin";
+    std::cout << "Vehiculo de " << this->wheels_amount << " ruedas, " << baul
+              << " baúl y cilindarada de " << this->engine_displacement
+              << " cm³." << std::endl;
 }
 
 // property get
