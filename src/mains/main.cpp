@@ -4,7 +4,9 @@
 #include "../../include/fixed_array_stack.hpp"
 #include "../../include/stack_user.hpp"
 #include <cstring>
+#include <exception>
 #include <iostream>
+#include <string>
 
 const char *help_str = "aiuda";
 
@@ -18,11 +20,20 @@ int main(int argc, char *argv[]) {
     if (strcmp(argv[1], "-f") == 0) {
       stack_impl = new FixedArrayStack();
     }
+    int n = 0;
+    if (argc > 2) {
+      try {
+        n = std::stoi(argv[2]);
+      } catch (std::exception &e) {
+        n = 0;
+      }
+    }
     if (strcmp(argv[1], "-d") == 0) {
-      stack_impl = new DynamicMemStack();
+      stack_impl = n < 1 ? new DynamicMemStack() : new DynamicMemStack(n);
     }
     if (strcmp(argv[1], "-r") == 0) {
-      stack_impl = new DynamicMemStackResizeable();
+      stack_impl = n < 1 ? new DynamicMemStackResizeable()
+                         : new DynamicMemStackResizeable(n);
     }
   }
   if (!stack_impl) {

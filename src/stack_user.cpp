@@ -21,5 +21,6 @@ bool StackUser::push(StackableObject *const new_object) {
 void StackUser::print() {
   for (StackableObject *obj = this->stack->pop(); obj != nullptr;
        obj = this->stack->pop()) {
+	  obj->print();
   }
 }
