@@ -3,17 +3,16 @@
 
 #include <StackInterface.h>
 
-class StackUser
-{
-    public:
-        StackUser(StackInterface * stack);
-        virtual ~StackUser();
+class StackUser {
+  public:
+    StackUser(StackInterface *stack);
+    virtual ~StackUser();
 
-        void cargarPila();
-        void imprimirPila();
+    void cargarPila();
+    void imprimirPila();
 
-    private:
-        StackInterface * stack;
+  private:
+    StackInterface *stack;
 };
 
 #endif // STACKUSER_H

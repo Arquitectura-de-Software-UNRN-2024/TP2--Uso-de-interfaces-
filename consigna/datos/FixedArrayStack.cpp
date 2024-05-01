@@ -1,27 +1,22 @@
-#include <iostream>
 #include "FixedArrayStack.h"
+#include <iostream>
 
-FixedArrayStack::FixedArrayStack()
-{
-    for(int i = 0; i < N; i++)
-    {
+FixedArrayStack::FixedArrayStack() {
+    for (int i = 0; i < N; i++) {
         this->pila[i] = NULL;
     }
     this->indice = 0;
 }
 
-FixedArrayStack::~FixedArrayStack()
-{
-    //dtor
+FixedArrayStack::~FixedArrayStack() {
+    // dtor
 }
 
-StackableObject * FixedArrayStack::pop()
-{
-    StackableObject * o;
+StackableObject *FixedArrayStack::pop() {
+    StackableObject *o;
 
-    if(this->indice <= 0)
-    {
-        return  NULL;
+    if (this->indice <= 0) {
+        return NULL;
     }
 
     this->indice--;
@@ -31,11 +26,9 @@ StackableObject * FixedArrayStack::pop()
     return o;
 }
 
-bool FixedArrayStack::push(StackableObject *o)
-{
-    if(this->indice >= N)
-    {
-        return  false;
+bool FixedArrayStack::push(StackableObject *o) {
+    if (this->indice >= N) {
+        return false;
     }
 
     this->pila[this->indice] = o;
@@ -44,7 +37,6 @@ bool FixedArrayStack::push(StackableObject *o)
     return true;
 }
 
-int FixedArrayStack::getCount()
-{
+int FixedArrayStack::getCount() {
     return this->indice;
 }

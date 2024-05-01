@@ -1,58 +1,39 @@
-#include "../../include/dummy_stackable_object.hpp"
-#include "../../include/dynamic_mem_stack.hpp"
-#include "../../include/dynamic_mem_stack_resizeable.hpp"
-#include "../../include/fixed_array_stack.hpp"
+/**
+ * @file main.cpp
+ * @author Pojmaevich Mirko (mirkopoj@gmail.com)
+ *         Torletti Lara (lara.a.torletti@gmail.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-05-01
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+#include "../../include/cli.hpp"
 #include "../../include/stack_user.hpp"
-#include <cstring>
-#include <exception>
+#include "../../include/stackable_object_vehicle.hpp"
 #include <iostream>
-#include <string>
-
-const char *help_str = "aiuda";
 
 int main(int argc, char *argv[]) {
-  Stack *stack_impl = nullptr;
-  if (argc > 1) {
-    if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
-      std::cout << help_str << std::endl;
-      exit(0);
+    if (cli::needs_help(argc, argv)) {
+        std::cout << cli::help_str(argv) << std::endl;
+        exit(0);
     }
-    if (strcmp(argv[1], "-f") == 0) {
-      stack_impl = new FixedArrayStack();
-    }
-    int n = 0;
-    if (argc > 2) {
-      try {
-        n = std::stoi(argv[2]);
-      } catch (std::exception &e) {
-        n = 0;
-      }
-    }
-    if (strcmp(argv[1], "-d") == 0) {
-      stack_impl = n < 1 ? new DynamicMemStack() : new DynamicMemStack(n);
-    }
-    if (strcmp(argv[1], "-r") == 0) {
-      stack_impl = n < 1 ? new DynamicMemStackResizeable()
-                         : new DynamicMemStackResizeable(n);
-    }
-  }
-  if (!stack_impl) {
-    stack_impl = new FixedArrayStack();
-  }
-  StackUser stack(stack_impl);
-  stack_impl = nullptr;
-  DummyStackableObject obj1;
-  stack.push(&obj1);
-  DummyStackableObject obj2;
-  stack.push(&obj2);
-  DummyStackableObject obj3;
-  stack.push(&obj3);
-  DummyStackableObject obj4;
-  stack.push(&obj4);
-  DummyStackableObject obj5;
-  stack.push(&obj5);
-  DummyStackableObject obj6;
-  stack.push(&obj6);
-  stack.print();
-  return 0;
+    StackUser stack(cli::parse_args(argc, argv));
+
+    Vehicle obj1(1, true, 600); // monociclo picante
+    stack.push(&obj1);
+    Vehicle obj2(2, true, 20); // motito con baul
+    stack.push(&obj2);
+    Vehicle obj3(3, false, 1300.5); // triciclo para que el nene vaya al jardin;
+    stack.push(&obj3);
+    Vehicle obj4(4, false, 0.002); // un hotwheels naftero
+    stack.push(&obj4);
+    Vehicle obj5(5, true,
+                 200.8); // la quinta rueda es la de auxilio (esta en el baúl)
+    stack.push(&obj5);
+    Vehicle obj6(5, false, 200.8); // la quinta rueda es la de auxilio (es una EcoSport)
+    stack.push(&obj6);
+    stack.print();
+    return 0;
 }

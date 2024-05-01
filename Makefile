@@ -1,9 +1,15 @@
 CC = g++
 LDFLAGS =
 LDTESTFLAGS = -lcriterion 
-CFLAGS = -O -std=c++20 
+CFLAGS = -O  
 ifeq ($(DEBUG),1)
 	CFLAGS += -g3
+endif
+ifdef DYNAMIC_STACK_INITIAL_CAPACITY
+	CFLAGS += -DDYNAMIC_STACK_INITIAL_CAPACITY=$(DYNAMIC_STACK_INITIAL_CAPACITY)
+endif
+ifdef FIXED_ARRAY_STACK_CAPACITY
+	CFLAGS += -DFIXED_ARRAY_STACK_CAPACITY=$(FIXED_ARRAY_STACK_CAPACITY)
 endif
 
 MAINS = $(shell find src/mains/ -maxdepth 1 -type f -name "*.cpp")

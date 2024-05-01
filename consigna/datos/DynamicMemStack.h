@@ -4,25 +4,22 @@
 #include <StackInterface.h>
 #include <StackNode.h>
 
+class DynamicMemStack : public StackInterface {
+  public:
+    DynamicMemStack();
+    virtual ~DynamicMemStack();
 
-class DynamicMemStack : public StackInterface
-{
-    public:
-        DynamicMemStack();
-        virtual ~DynamicMemStack();
+    virtual StackableObject *pop();
+    virtual bool push(StackableObject *o);
+    virtual int getCount();
 
-        virtual StackableObject * pop();
-        virtual bool push(StackableObject *o);
-        virtual int getCount();
+  protected:
+  private:
+    StackNode *top;
+    int count;
 
-    protected:
-
-    private:
-        StackNode * top;
-        int count;
-
-        void removeTopNode();
-        void addTopNode(StackNode * newTop);
+    void removeTopNode();
+    void addTopNode(StackNode *newTop);
 };
 
 #endif // DYNAMICMEMSTACK_H
