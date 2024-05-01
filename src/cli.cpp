@@ -22,32 +22,38 @@ namespace cli {
 const std::string help_string =
     "\n"
     "## Opciones\n"
-    "  --help| -h\n"
+    "\n"
+    "  --help | -h\n"
+    "\n"
     "      Muestra esta información de ayuda.\n"
+    "\n"
     "  -f\n"
-    "      Selecciona la implementación de pila estática. La pila se crea con "
-    "un tamaño predeterminado "
-    "      definido por la variable `FIXED_ARRAY_STACK_CAPACITY` en el archivo "
-    "`fixed_array_stack.hpp`.\n"
+    "\n"
+    "      Selecciona la implementación de pila estática.\n" 
+    "      La pila se crea con un tamaño predeterminado\n"
+    "      definido por la variable `FIXED_ARRAY_STACK_CAPACITY`\n"
+    "      en el archivo `fixed_array_stack.hpp`.\n"
+    "\n"
     "  -d [tamaño]\n"
-    "      Selecciona la implementación de pila de memoria dinámica. Si no se "
-    "proporciona un tamaño, "
-    "      se crea una pila predeterminada con un tamaño especificado por la "
-    "constante `DYNAMIC_STACK_INITIAL_CAPACITY` "
-    "      en el archivo `dynamic_mem_stack.hpp`. Si se proporciona un tamaño "
-    "(por ejemplo, `-d 100`), la pila "
+    "\n"
+    "      Selecciona la implementación de pila de memoria dinámica.\n"
+    "      Si no se proporciona un tamaño, se crea una pila predeterminada\n"
+    "      con un tamaño especificado por la constante `DYNAMIC_STACK_INITIAL_CAPACITY`\n"
+    "      en el archivo `dynamic_mem_stack.hpp`.\n" 
+    "      Si se proporciona un tamaño (por ejemplo, `-d 100`), la pila\n"
     "      se inicializa con la capacidad inicial especificada.\n"
+    "\n"
     "  -r [tamaño]\n"
-    "      Selecciona la implementación de pila de memoria dinámica "
-    "redimensionable. Si no se proporciona un tamaño, "
-    "      se crea una pila predeterminada con un tamaño especificado por la "
-    "constante `DYNAMIC_STACK_INITIAL_CAPACITY` "
-    "      en el archivo `dynamic_mem_stack.hpp`. Si se proporciona un tamaño "
-    "(por ejemplo, `-r 100`), la pila "
-    "      se inicializa con la capacidad inicial especificada.\n";
+    "\n"
+    "      Selecciona la implementación de pila de memoria dinámica\n"
+    "      redimensionable. Si no se proporciona un tamaño,\n"
+    "      se crea una pila predeterminada con un tamaño especificado por\n"
+    "      la constante `DYNAMIC_STACK_INITIAL_CAPACITY`\n"
+    "      en el archivo `dynamic_mem_stack.hpp`. Si se proporciona un tamaño,\n"
+    "      (por ejemplo, `-r 100`), la pila se inicializa con la capacidad especificada.\n";
 
 std::string help_str(char *argv[]) {
-    return "## Modo de uso: " + std::string(argv[0]) + " <Opciones>\n" +
+    return "\n## Modo de uso: " + std::string(argv[0]) + " <Opciones>\n" +
            help_string;
 }
 
