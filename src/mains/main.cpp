@@ -32,8 +32,7 @@ int main(int argc, char *argv[]) {
     Vehicle obj5(5, true,
                  200.8); // la quinta rueda es la de auxilio (esta en el baúl)
     stack.push(&obj5);
-    Vehicle obj6(5, false,
-                 200.8); // la quinta rueda es la de auxilio (es una EcoSport)
+    Vehicle obj6(5, false, 200.8); // la quinta rueda es la de auxilio (es una EcoSport)
     stack.push(&obj6);
     stack.print();
     return 0;

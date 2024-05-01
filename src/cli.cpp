@@ -21,6 +21,9 @@ namespace cli {
 
 const std::string help_string =
     "\n"
+    "## ATENCIÓN: Si no se especifica ninguna implementación, por defecto se utilizará\n"
+    "             la implementación de pila estática (ver -f)."
+    "\n"
     "## Opciones\n"
     "\n"
     "  --help | -h\n"
