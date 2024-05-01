@@ -12,15 +12,16 @@
 
 #include "../include/stack_user.hpp"
 
-StackUser::StackUser(Stack *foreing_stack) : stack{foreing_stack} {}
+StackUser::StackUser(Stack *foreing_stack) : stack{foreing_stack} {
+}
 
 bool StackUser::push(StackableObject *const new_object) {
-  return this->stack->push(new_object);
+    return this->stack->push(new_object);
 }
 
 void StackUser::print() {
-  for (StackableObject *obj = this->stack->pop(); obj != nullptr;
-       obj = this->stack->pop()) {
-	  obj->print();
-  }
+    for (StackableObject *obj = this->stack->pop(); obj != nullptr;
+         obj = this->stack->pop()) {
+        obj->print();
+    }
 }

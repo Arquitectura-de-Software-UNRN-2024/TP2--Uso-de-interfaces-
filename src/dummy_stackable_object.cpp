@@ -3,9 +3,11 @@
 
 int DummyStackableObject::count = 0;
 
-DummyStackableObject::DummyStackableObject(){
-	this->id = this->count;
-	this->count++;
+DummyStackableObject::DummyStackableObject() {
+    this->id = this->count;
+    this->count++;
 }
 
-void DummyStackableObject::print() { std::cout << this->id << std::endl; }
+void DummyStackableObject::print() {
+    std::cout << this->id << std::endl;
+}
